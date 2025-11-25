@@ -31,17 +31,16 @@ $items_result = mysqli_query($conn, $items_query);
             <form id="donationForm" method="POST" action="<?php echo SITE_URL; ?>/includes/process_donation.php">
                 <!-- Amount Slider -->
                 <div class="amount-slider">
-                    <span style="font-size: 36px;">$</span>
-                    <input type="number" id="donationAmount" name="amount" value="99" min="1" required>
+                    <span style="font-size: 36px;">৳</span>
+                    <input type="number" id="donationAmount" name="amount" value="5000" min="1" required>
                 </div>
 
                 <!-- Amount Buttons -->
                 <div class="amount-buttons">
-                    <button type="button" class="amount-btn" data-amount="25">$25</button>
-                    <button type="button" class="amount-btn" data-amount="50">$50</button>
-                    <button type="button" class="amount-btn" data-amount="75">$75</button>
-                    <button type="button" class="amount-btn active" data-amount="99">$99</button>
-                    <button type="button" class="amount-btn" data-amount="200">$200</button>
+                    <button type="button" class="amount-btn" data-amount="1000">৳1,000</button>
+                    <button type="button" class="amount-btn" data-amount="5000">৳5,000</button>
+                    <button type="button" class="amount-btn" data-amount="10000">৳10,000</button>
+                    <button type="button" class="amount-btn active" data-amount="50000">৳50,000</button>
                     <button type="button" class="amount-btn" id="customBtn">Custom Amount</button>
                 </div>
 
