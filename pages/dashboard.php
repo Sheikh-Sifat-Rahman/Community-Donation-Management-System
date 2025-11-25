@@ -17,7 +17,7 @@ $stats = [
 ];
 
 // Get donation count and total
-$donation_query = "SELECT COUNT(*) as count, SUM(amount) as total FROM DONATION WHERE Donor_ID = " . $user['id'];
+$donation_query = "SELECT COUNT(*) as count, SUM(Quantity_Donated) as total FROM DONATION WHERE Donor_ID = " . $user['id'];
 $donation_result = mysqli_query($conn, $donation_query);
 if ($donation_result && mysqli_num_rows($donation_result) > 0) {
     $donation_data = mysqli_fetch_assoc($donation_result);
@@ -30,7 +30,7 @@ $recent_query = "SELECT d.*, don.Name as donor_name
                  FROM DONATION d 
                  LEFT JOIN DONOR don ON d.Donor_ID = don.Donor_ID 
                  WHERE d.Donor_ID = " . $user['id'] . " 
-                 ORDER BY d.Donation_Date DESC 
+                 ORDER BY d.Date_Donated DESC 
                  LIMIT 5";
 $recent_result = mysqli_query($conn, $recent_query);
 ?>
@@ -243,7 +243,7 @@ $recent_result = mysqli_query($conn, $recent_query);
                 <i class="fas fa-dollar-sign"></i>
             </div>
             <div class="stat-card-value">$<?php echo number_format($stats['total_donated'], 2); ?></div>
-            <div class="stat-card-label">Amount Donated</div>
+            <div class="stat-card-label">Items Donated</div>
         </div>
 
         <div class="stat-card">
@@ -290,17 +290,17 @@ $recent_result = mysqli_query($conn, $recent_query);
                 <thead>
                     <tr>
                         <th>Date</th>
-                        <th>Type</th>
-                        <th>Amount</th>
+                        <th>Payment Method</th>
+                        <th>Quantity</th>
                         <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php while ($donation = mysqli_fetch_assoc($recent_result)): ?>
                         <tr>
-                            <td><?php echo date('M d, Y', strtotime($donation['Donation_Date'])); ?></td>
-                            <td><?php echo htmlspecialchars($donation['Donation_Type'] ?? 'General'); ?></td>
-                            <td>$<?php echo number_format($donation['amount'] ?? 0, 2); ?></td>
+                            <td><?php echo date('M d, Y', strtotime($donation['Date_Donated'])); ?></td>
+                            <td><?php echo htmlspecialchars($donation['Payment_Method'] ?? 'General'); ?></td>
+                            <td><?php echo $donation['Quantity_Donated'] ?? 0; ?> items</td>
                             <td><span style="color: #4CAF50; font-weight: 600;">Completed</span></td>
                         </tr>
                     <?php endwhile; ?>

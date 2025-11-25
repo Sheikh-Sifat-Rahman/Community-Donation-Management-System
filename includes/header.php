@@ -1,6 +1,6 @@
 <?php 
 // Use absolute path for config
-$config_path = $_SERVER['DOCUMENT_ROOT'] . '/Community Donation/config/config.php';
+$config_path = $_SERVER['DOCUMENT_ROOT'] . '/Community-Donation-Management-System/config/config.php';
 if (file_exists($config_path)) {
     require_once $config_path;
 } else {
@@ -55,7 +55,12 @@ if (file_exists($config_path)) {
                     <li><a href="<?php echo SITE_URL; ?>/index.php" class="<?php echo ($current_page == 'home') ? 'active' : ''; ?>">Home</a></li>
                     <li><a href="<?php echo SITE_URL; ?>/pages/about.php" class="<?php echo ($current_page == 'about') ? 'active' : ''; ?>">About Us</a></li>
                     <li><a href="<?php echo SITE_URL; ?>/pages/donation.php" class="<?php echo ($current_page == 'donation') ? 'active' : ''; ?>">Donation</a></li>
-                    <li><a href="<?php echo SITE_URL; ?>/pages/pages.php" class="<?php echo ($current_page == 'pages') ? 'active' : ''; ?>">Pages</a></li>
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <li><a href="<?php echo SITE_URL; ?>/pages/dashboard.php" class="<?php echo ($current_page == 'dashboard') ? 'active' : ''; ?>">Dashboard</a></li>
+                    <?php endif; ?>
+                    <?php if (isset($_SESSION['user_id']) && $_SESSION['user_role'] === 'admin'): ?>
+                        <li><a href="<?php echo SITE_URL; ?>/pages/pages.php" class="<?php echo ($current_page == 'pages') ? 'active' : ''; ?>">Admin Dashboard</a></li>
+                    <?php endif; ?>
                     <li><a href="<?php echo SITE_URL; ?>/pages/events.php" class="<?php echo ($current_page == 'events') ? 'active' : ''; ?>">Events</a></li>
                     <li><a href="<?php echo SITE_URL; ?>/pages/volunteers.php" class="<?php echo ($current_page == 'volunteers') ? 'active' : ''; ?>">Volunteers</a></li>
                     <?php if (isset($_SESSION['user_id'])): ?>
