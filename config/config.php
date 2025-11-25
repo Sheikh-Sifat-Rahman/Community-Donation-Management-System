@@ -7,7 +7,7 @@ define('DB_NAME', 'community_donation');
 
 // Site Configuration
 define('SITE_NAME', 'Clean Hearts');
-define('SITE_URL', 'http://localhost/Community Donation');
+define('SITE_URL', 'http://localhost:8000');
 define('SITE_EMAIL', 'info.cleanhearts@gmail.com');
 define('SITE_PHONE', '(456) 555-0100');
 define('SITE_ADDRESS', '1901 N Pitt Str., Suite 170 Alexandria, USA');

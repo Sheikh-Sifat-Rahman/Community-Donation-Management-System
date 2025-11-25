@@ -138,6 +138,69 @@ nav a:hover, nav a.active {
     box-shadow: 0 5px 15px rgba(244, 197, 77, 0.4);
 }
 
+.login-btn, .register-btn {
+    padding: 8px 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+}
+
+.login-btn {
+    background: transparent;
+    border: 2px solid #6b4a8e;
+    color: #6b4a8e !important;
+}
+
+.login-btn:hover {
+    background: #6b4a8e;
+    color: white !important;
+}
+
+.register-btn {
+    background: #6b4a8e;
+    color: white !important;
+}
+
+.register-btn:hover {
+    background: #8e6bb4;
+    transform: translateY(-2px);
+}
+
+.user-menu {
+    position: relative;
+}
+
+.user-menu .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    min-width: 150px;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+
+.user-menu:hover .dropdown {
+    display: block;
+}
+
+.user-menu .dropdown a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+}
+
+.user-menu .dropdown a:hover {
+    background: #f5f5f5;
+    color: #6b4a8e;
+}
+
 /* Hero Section */
 .hero {
     background: linear-gradient(rgba(107, 74, 142, 0.8), rgba(107, 74, 142, 0.8)), url('../images/hero-bg.jpg');

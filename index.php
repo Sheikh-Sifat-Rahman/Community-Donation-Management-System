@@ -2,13 +2,20 @@
 $current_page = 'home';
 $page_title = 'Home';
 require_once 'includes/header.php';
+require_once 'includes/auth.php';
+
+// Check if user is logged in, if yes redirect to dashboard
+if (isLoggedIn()) {
+    header('Location: ' . SITE_URL . '/pages/dashboard.php');
+    exit();
+}
 ?>
 
 <!-- Hero Section -->
-<div class="hero" style="background-image: linear-gradient(rgba(107, 74, 142, 0.8), rgba(107, 74, 142, 0.8)), url('assets/images/hero-bg.jpg');">
-    <div class="container" style="text-align: center; padding: 100px 20px;">
-        <h1 style="font-size: 56px; margin-bottom: 20px; color: white;">Welcome to <?php echo SITE_NAME; ?></h1>
-        <p style="font-size: 20px; margin-bottom: 30px; color: white;">Making a difference in people's lives through community support</p>
+<div class="hero" style="background-image: linear-gradient(rgba(45, 27, 78, 0.75), rgba(107, 74, 142, 0.75)), url('assets/images/hero-bg.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="container" style="text-align: center; padding: 120px 20px;">
+        <h1 style="font-size: 56px; margin-bottom: 20px; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Welcome to <?php echo SITE_NAME; ?></h1>
+        <p style="font-size: 20px; margin-bottom: 30px; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">Making a difference in people's lives through community support</p>
         <a href="<?php echo SITE_URL; ?>/pages/donate.php" class="donate-btn" style="display: inline-flex; margin-top: 20px; font-size: 18px; padding: 15px 40px;">
             <i class="fas fa-hand-holding-heart"></i> Donate Now
         </a>
@@ -103,10 +110,10 @@ require_once 'includes/header.php';
 </div>
 
 <!-- Call to Action -->
-<div style="background: linear-gradient(135deg, #6b4a8e, #8b5db4); padding: 80px 20px; text-align: center; color: white;">
+<div style="background: linear-gradient(rgba(107, 74, 142, 0.9), rgba(139, 93, 180, 0.9)), url('assets/images/community.jpg'); background-size: cover; background-position: center; background-attachment: fixed; padding: 80px 20px; text-align: center; color: white;">
     <div class="container">
-        <h2 style="font-size: 42px; margin-bottom: 20px;">Make a Difference Today</h2>
-        <p style="font-size: 20px; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">
+        <h2 style="font-size: 42px; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Make a Difference Today</h2>
+        <p style="font-size: 20px; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
             Your contribution can change lives. Join us in our mission to help those in need.
         </p>
         <a href="<?php echo SITE_URL; ?>/pages/donate.php" class="donate-btn" style="display: inline-flex; font-size: 18px; padding: 15px 40px;">

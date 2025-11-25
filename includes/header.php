@@ -57,13 +57,19 @@ if (file_exists($config_path)) {
                     <li><a href="<?php echo SITE_URL; ?>/pages/donation.php" class="<?php echo ($current_page == 'donation') ? 'active' : ''; ?>">Donation</a></li>
                     <li><a href="<?php echo SITE_URL; ?>/pages/pages.php" class="<?php echo ($current_page == 'pages') ? 'active' : ''; ?>">Pages</a></li>
                     <li><a href="<?php echo SITE_URL; ?>/pages/events.php" class="<?php echo ($current_page == 'events') ? 'active' : ''; ?>">Events</a></li>
-                    <li><a href="<?php echo SITE_URL; ?>/pages/shop.php" class="<?php echo ($current_page == 'shop') ? 'active' : ''; ?>">Shop</a></li>
-                    <li><a href="<?php echo SITE_URL; ?>/pages/news.php" class="<?php echo ($current_page == 'news') ? 'active' : ''; ?>">News</a></li>
-                    <li><a href="<?php echo SITE_URL; ?>/pages/contact.php" class="<?php echo ($current_page == 'contact') ? 'active' : ''; ?>">Contact Us</a></li>
-                    <li class="cart-icon">
-                        <a href="<?php echo SITE_URL; ?>/pages/cart.php"><i class="fas fa-shopping-cart"></i></a>
-                        <span class="cart-count">0</span>
-                    </li>
+                    <li><a href="<?php echo SITE_URL; ?>/pages/volunteers.php" class="<?php echo ($current_page == 'volunteers') ? 'active' : ''; ?>">Volunteers</a></li>
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <li class="user-menu">
+                            <a href="#"><i class="fas fa-user"></i> <?php echo htmlspecialchars($_SESSION['user_name']); ?></a>
+                            <div class="dropdown">
+                                <a href="<?php echo SITE_URL; ?>/pages/profile.php">Profile</a>
+                                <a href="<?php echo SITE_URL; ?>/pages/logout.php">Logout</a>
+                            </div>
+                        </li>
+                    <?php else: ?>
+                        <li><a href="<?php echo SITE_URL; ?>/pages/login.php" class="login-btn"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                        <li><a href="<?php echo SITE_URL; ?>/pages/register.php" class="register-btn"><i class="fas fa-user-plus"></i> Register</a></li>
+                    <?php endif; ?>
                     <li><a href="<?php echo SITE_URL; ?>/pages/donate.php" class="donate-btn"><i class="fas fa-hand-holding-heart"></i> Donate Now</a></li>
                 </ul>
             </nav>
