@@ -1,0 +1,610 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: #2d1b4e;
+    color: white;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.top-bar .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar-left {
+    display: flex;
+    gap: 20px;
+}
+
+.top-bar-right {
+    display: flex;
+    gap: 15px;
+}
+
+.top-bar a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Header */
+header {
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.logo-text h1 {
+    color: #6b4a8e;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.logo-text p {
+    color: #888;
+    font-size: 12px;
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: #6b4a8e;
+}
+
+.cart-icon {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #6b4a8e;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.donate-btn {
+    background: linear-gradient(135deg, #f4c54d, #e6b547);
+    color: #333 !important;
+    padding: 10px 25px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.donate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(244, 197, 77, 0.4);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(107, 74, 142, 0.8), rgba(107, 74, 142, 0.8)), url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.breadcrumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+/* Main Content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Notice Alert */
+.notice-alert {
+    background-color: #fff8e1;
+    border-left: 4px solid #ffc107;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notice-alert::before {
+    content: "⚠";
+    font-size: 24px;
+    color: #ffc107;
+}
+
+/* Donation Form Section */
+.donation-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.donation-form {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* Amount Slider */
+.amount-slider {
+    background: linear-gradient(135deg, #8b5db4, #6b4a8e);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.amount-slider input[type="number"] {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    outline: none;
+}
+
+.amount-slider::before {
+    content: "$";
+    font-size: 36px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-60px);
+}
+
+/* Amount Buttons */
+.amount-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.amount-btn {
+    flex: 1;
+    min-width: 80px;
+    padding: 12px 20px;
+    border: 2px solid #e0e0e0;
+    background-color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.amount-btn:hover, .amount-btn.active {
+    background: linear-gradient(135deg, #8b5db4, #6b4a8e);
+    color: white;
+    border-color: #6b4a8e;
+}
+
+/* Payment Method */
+.payment-method {
+    margin-bottom: 30px;
+}
+
+.payment-method h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.payment-options {
+    display: flex;
+    gap: 20px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.payment-option input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Personal Info */
+.personal-info h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #6b4a8e;
+}
+
+/* Submit Button */
+.submit-btn {
+    background: linear-gradient(135deg, #f4c54d, #e6b547);
+    color: #333;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(244, 197, 77, 0.4);
+}
+
+/* Campaign Card */
+.campaign-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.campaign-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.campaign-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.campaign-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b4a8e;
+}
+
+.campaign-progress {
+    padding: 20px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(135deg, #f4c54d, #e6b547);
+    border-radius: 4px;
+}
+
+.campaign-title {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.details-btn {
+    background-color: transparent;
+    border: 2px solid #6b4a8e;
+    color: #6b4a8e;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.details-btn:hover {
+    background-color: #6b4a8e;
+    color: white;
+}
+
+/* Organizer Card */
+.organizer-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    margin-top: 30px;
+}
+
+.organizer-card h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.organizer-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.organizer-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.organizer-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.organizer-details h4 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.organizer-details p {
+    color: #666;
+    font-size: 14px;
+}
+
+.organizer-address {
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #2d1b4e, #1a0f30);
+    color: white;
+    padding: 60px 20px 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #f4c54d;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #ccc;
+}
+
+/* Subscribe Section */
+.subscribe-section {
+    background: linear-gradient(135deg, #2d1b4e, #1a0f30);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.subscribe-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.subscribe-content h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.subscribe-form input {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+}
+
+.subscribe-btn {
+    background: linear-gradient(135deg, #f4c54d, #e6b547);
+    color: #333;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .donation-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .subscribe-form {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,71 @@
+<?php 
+// Use absolute path for config
+$config_path = $_SERVER['DOCUMENT_ROOT'] . '/Community Donation/config/config.php';
+if (file_exists($config_path)) {
+    require_once $config_path;
+} else {
+    // Fallback for different directory structures
+    require_once dirname(dirname(__FILE__)) . '/config/config.php';
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo isset($page_title) ? $page_title . ' - ' : ''; ?><?php echo SITE_NAME; ?></title>
+    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <span><i class="fas fa-envelope"></i> <?php echo SITE_EMAIL; ?></span>
+                <span><i class="fas fa-map-marker-alt"></i> 18 Jaclin Harbour Roadstown, PA 19020</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="<?php echo SITE_URL; ?>/index.php" class="logo">
+                <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+                    <circle cx="25" cy="25" r="20" fill="#6b4a8e" opacity="0.2"/>
+                    <path d="M25 10 C 15 15, 15 35, 25 40 C 35 35, 35 15, 25 10 Z" fill="#6b4a8e"/>
+                    <circle cx="25" cy="25" r="8" fill="white"/>
+                    <path d="M 22 25 L 25 28 L 30 20" stroke="#6b4a8e" stroke-width="2" fill="none"/>
+                </svg>
+                <div class="logo-text">
+                    <h1><?php echo SITE_NAME; ?></h1>
+                    <p>Charity & Donation</p>
+                </div>
+            </a>
+
+            <nav>
+                <ul>
+                    <li><a href="<?php echo SITE_URL; ?>/index.php" class="<?php echo ($current_page == 'home') ? 'active' : ''; ?>">Home</a></li>
+                    <li><a href="<?php echo SITE_URL; ?>/pages/about.php" class="<?php echo ($current_page == 'about') ? 'active' : ''; ?>">About Us</a></li>
+                    <li><a href="<?php echo SITE_URL; ?>/pages/donation.php" class="<?php echo ($current_page == 'donation') ? 'active' : ''; ?>">Donation</a></li>
+                    <li><a href="<?php echo SITE_URL; ?>/pages/pages.php" class="<?php echo ($current_page == 'pages') ? 'active' : ''; ?>">Pages</a></li>
+                    <li><a href="<?php echo SITE_URL; ?>/pages/events.php" class="<?php echo ($current_page == 'events') ? 'active' : ''; ?>">Events</a></li>
+                    <li><a href="<?php echo SITE_URL; ?>/pages/shop.php" class="<?php echo ($current_page == 'shop') ? 'active' : ''; ?>">Shop</a></li>
+                    <li><a href="<?php echo SITE_URL; ?>/pages/news.php" class="<?php echo ($current_page == 'news') ? 'active' : ''; ?>">News</a></li>
+                    <li><a href="<?php echo SITE_URL; ?>/pages/contact.php" class="<?php echo ($current_page == 'contact') ? 'active' : ''; ?>">Contact Us</a></li>
+                    <li class="cart-icon">
+                        <a href="<?php echo SITE_URL; ?>/pages/cart.php"><i class="fas fa-shopping-cart"></i></a>
+                        <span class="cart-count">0</span>
+                    </li>
+                    <li><a href="<?php echo SITE_URL; ?>/pages/donate.php" class="donate-btn"><i class="fas fa-hand-holding-heart"></i> Donate Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
