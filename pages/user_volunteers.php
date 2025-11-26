@@ -137,13 +137,13 @@ $available_tasks = mysqli_query($conn, $available_tasks_query);
 
     <!-- Available Tasks -->
     <div style="margin-bottom: 30px;">
-        <h2 style="color: #6b4a8e; margin-bottom: 10px;"><i class="fas fa-list"></i> Available Pickup Tasks</h2>
+        <h2 style="color: #ff6b6b; margin-bottom: 10px;"><i class="fas fa-list"></i> Available Pickup Tasks</h2>
         <p style="color: #666; margin-bottom: 25px;">These donors need someone to collect their donations from their homes. Take a task and help the community!</p>
         
         <?php if (mysqli_num_rows($available_tasks) > 0): ?>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px;">
             <?php while ($task = mysqli_fetch_assoc($available_tasks)): ?>
-            <div style="background: white; border-radius: 15px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-top: 4px solid #6b4a8e; transition: transform 0.3s;">
+            <div style="background: white; border-radius: 15px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-top: 4px solid #ff6b6b; transition: transform 0.3s;">
                 <div style="margin-bottom: 15px;">
                     <h3 style="color: #333; margin-bottom: 5px;"><?php echo htmlspecialchars($task['Item_Name']); ?></h3>
                     <p style="color: #999; font-size: 14px;">
@@ -153,15 +153,15 @@ $available_tasks = mysqli_query($conn, $available_tasks_query);
                 
                 <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
                     <p style="color: #666; margin-bottom: 10px;">
-                        <i class="fas fa-box" style="color: #6b4a8e; width: 20px;"></i> 
+                        <i class="fas fa-box" style="color: #ff6b6b; width: 20px;"></i> 
                         <strong>Quantity:</strong> <?php echo $task['Quantity_Donated']; ?> units
                     </p>
                     <p style="color: #666; margin-bottom: 10px;">
-                        <i class="fas fa-phone" style="color: #6b4a8e; width: 20px;"></i> 
+                        <i class="fas fa-phone" style="color: #ff6b6b; width: 20px;"></i> 
                         <strong>Contact:</strong> <?php echo htmlspecialchars($task['Contact_Phone']); ?>
                     </p>
                     <p style="color: #666; margin-bottom: 0;">
-                        <i class="fas fa-map-marker-alt" style="color: #6b4a8e; width: 20px;"></i> 
+                        <i class="fas fa-map-marker-alt" style="color: #ff6b6b; width: 20px;"></i> 
                         <strong>Location:</strong> <?php echo htmlspecialchars($task['Location_Info']); ?>
                     </p>
                 </div>
@@ -173,7 +173,7 @@ $available_tasks = mysqli_query($conn, $available_tasks_query);
                 <?php else: ?>
                 <form method="POST" style="margin: 0;">
                     <input type="hidden" name="donation_id" value="<?php echo $task['Donation_ID']; ?>">
-                    <button type="submit" name="self_assign" style="width: 100%; background: linear-gradient(135deg, #6b4a8e, #8b5db4); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: transform 0.2s;">
+                    <button type="submit" name="self_assign" style="width: 100%; background: linear-gradient(135deg, #ff6b6b, #ff8e53); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: transform 0.2s;">
                         <i class="fas fa-hand-paper"></i> Take This Task
                     </button>
                 </form>

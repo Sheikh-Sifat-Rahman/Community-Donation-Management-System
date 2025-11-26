@@ -6,11 +6,11 @@ define('DB_PASS', '');
 define('DB_NAME', 'community_donation');
 
 // Site Configuration
-define('SITE_NAME', 'Clean Hearts');
+define('SITE_NAME', 'Warm Hands');
 define('SITE_URL', 'http://localhost:8000');
-define('SITE_EMAIL', 'info.cleanhearts@gmail.com');
-define('SITE_PHONE', '(456) 555-0100');
-define('SITE_ADDRESS', '1901 N Pitt Str., Suite 170 Alexandria, USA');
+define('SITE_EMAIL', 'info.warmhands@gmail.com');
+define('SITE_PHONE', '(555) 123-4567');
+define('SITE_ADDRESS', '123 Hope Street, Community Center, USA');
 
 // Create database connection
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);

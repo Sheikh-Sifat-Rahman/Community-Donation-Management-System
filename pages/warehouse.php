@@ -95,7 +95,7 @@ $stats = mysqli_fetch_assoc($stats_result);
 }
 
 .modal-content h3 {
-    color: #6b4a8e;
+    color: #ff6b6b;
     margin-bottom: 20px;
     font-size: 24px;
 }
@@ -118,13 +118,13 @@ $stats = mysqli_fetch_assoc($stats_result);
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #6b4a8e, #8b5db4);
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
     color: white;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(107, 74, 142, 0.3);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
 }
 
 .btn-danger {
@@ -159,7 +159,7 @@ $stats = mysqli_fetch_assoc($stats_result);
 }
 
 .warehouse-table th {
-    background: linear-gradient(135deg, #6b4a8e, #8b5db4);
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
     color: white;
     font-weight: 600;
 }
@@ -183,7 +183,7 @@ $stats = mysqli_fetch_assoc($stats_result);
 }
 </style>
 
-<div class="hero" style="background: linear-gradient(rgba(107, 74, 142, 0.85), rgba(139, 93, 180, 0.85)), url('<?php echo SITE_URL; ?>/assets/images/warehouse.jpg'); background-size: cover; background-position: center;">
+<div class="hero" style="background: linear-gradient(rgba(255, 107, 107, 0.85), rgba(255, 142, 83, 0.85)), url('<?php echo SITE_URL; ?>/assets/images/warehouse.jpg'); background-size: cover; background-position: center;">
     <h1>Warehouse Inventory</h1>
     <div class="breadcrumb">
         <a href="<?php echo SITE_URL; ?>/index.php"><i class="fas fa-home"></i> Home</a>
@@ -207,7 +207,7 @@ $stats = mysqli_fetch_assoc($stats_result);
     
     <!-- Statistics -->
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px;">
-        <div style="background: linear-gradient(135deg, #6b4a8e, #8b5db4); color: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.15);">
+        <div style="background: linear-gradient(135deg, #ff6b6b, #ff8e53); color: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.15);">
             <div style="display: flex; align-items: center; gap: 20px;">
                 <i class="fas fa-boxes" style="font-size: 48px; opacity: 0.8;"></i>
                 <div>
@@ -230,7 +230,7 @@ $stats = mysqli_fetch_assoc($stats_result);
     
     <!-- Visual Cards View -->
     <div style="text-align: center; margin-bottom: 30px;">
-        <h2 style="font-size: 36px; color: #6b4a8e; margin-bottom: 15px;">Available Items</h2>
+        <h2 style="font-size: 36px; color: #ff6b6b; margin-bottom: 15px;">Available Items</h2>
         <p style="font-size: 18px; color: #666;">Current inventory of donation items</p>
     </div>
     
@@ -240,13 +240,13 @@ $stats = mysqli_fetch_assoc($stats_result);
         while ($item = mysqli_fetch_assoc($warehouse_result)): 
         ?>
         <div style="background: white; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); padding: 30px; text-align: center;">
-            <div style="width: 80px; height: 80px; margin: 0 auto 20px; background: linear-gradient(135deg, #6b4a8e, #8b5db4); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 36px;">
+            <div style="width: 80px; height: 80px; margin: 0 auto 20px; background: linear-gradient(135deg, #ff6b6b, #ff8e53); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 36px;">
                 <i class="fas fa-box"></i>
             </div>
             <h3 style="color: #333; margin-bottom: 15px; font-size: 20px;"><?php echo htmlspecialchars($item['Item_Name']); ?></h3>
             <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
                 <p style="color: #666; font-size: 14px; margin-bottom: 5px;">Available Quantity</p>
-                <p style="color: #6b4a8e; font-size: 32px; font-weight: 700;"><?php echo $item['quantity']; ?></p>
+                <p style="color: #ff6b6b; font-size: 32px; font-weight: 700;"><?php echo $item['quantity']; ?></p>
                 <p style="color: #888; font-size: 12px;">units</p>
             </div>
         </div>
@@ -256,7 +256,7 @@ $stats = mysqli_fetch_assoc($stats_result);
     <!-- Admin Management Section -->
     <?php if ($is_admin): ?>
     <div style="background: white; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.1); padding: 40px; margin-bottom: 50px;">
-        <h2 style="font-size: 28px; color: #6b4a8e; margin-bottom: 10px; text-align: center;">
+        <h2 style="font-size: 28px; color: #ff6b6b; margin-bottom: 10px; text-align: center;">
             <i class="fas fa-plus-circle"></i> Add New Item
         </h2>
         <p style="text-align: center; color: #666; margin-bottom: 30px;">Add a new item to warehouse inventory</p>
@@ -291,7 +291,7 @@ $stats = mysqli_fetch_assoc($stats_result);
     
     <!-- Detailed List View -->
     <div style="margin-bottom: 50px;">
-        <h2 style="font-size: 28px; color: #6b4a8e; margin-bottom: 20px; text-align: center;">
+        <h2 style="font-size: 28px; color: #ff6b6b; margin-bottom: 20px; text-align: center;">
             <i class="fas fa-list"></i> Inventory Details
         </h2>
         
@@ -317,7 +317,7 @@ $stats = mysqli_fetch_assoc($stats_result);
                 <tr>
                     <td><?php echo $item['Item_ID']; ?></td>
                     <td><strong><?php echo htmlspecialchars($item['Item_Name']); ?></strong></td>
-                    <td><span style="font-size: 18px; font-weight: 600; color: #6b4a8e;"><?php echo number_format($item['quantity']); ?></span> units</td>
+                    <td><span style="font-size: 18px; font-weight: 600; color: #ff6b6b;"><?php echo number_format($item['quantity']); ?></span> units</td>
                     <td>
                         <span style="background: <?php echo $status_color; ?>; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">
                             <?php echo $status_text; ?>

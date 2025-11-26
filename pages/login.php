@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <style>
 .auth-page-wrapper {
     min-height: calc(100vh - 200px);
-    background: linear-gradient(rgba(107, 74, 142, 0.85), rgba(45, 27, 78, 0.85)), url('../assets/images/volunteer.jpg');
+    background: linear-gradient(rgba(255, 107, 107, 0.85), rgba(217, 83, 79, 0.85)), url('../assets/images/volunteer.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 .auth-header h2 {
-    color: #6b4a8e;
+    color: #ff6b6b;
     font-size: 32px;
     margin-bottom: 10px;
 }
@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 .form-group input:focus {
     outline: none;
-    border-color: #6b4a8e;
+    border-color: #ff6b6b;
 }
 
 .alert {
@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 .btn-login {
     width: 100%;
     padding: 14px;
-    background: linear-gradient(135deg, #6b4a8e, #8e6bb4);
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
     color: white;
     border: none;
     border-radius: 5px;
@@ -134,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 .btn-login:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(107, 74, 142, 0.3);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
 }
 
 .auth-footer {
@@ -145,7 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 .auth-footer a {
-    color: #6b4a8e;
+    color: #ff6b6b;
     text-decoration: none;
     font-weight: 600;
 }
@@ -161,7 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 .forgot-password a {
-    color: #6b4a8e;
+    color: #ff6b6b;
     text-decoration: none;
     font-size: 13px;
 }

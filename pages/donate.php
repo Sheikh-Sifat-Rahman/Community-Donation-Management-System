@@ -9,7 +9,7 @@ $items_result = mysqli_query($conn, $items_query);
 ?>
 
 <!-- Hero Section -->
-<div class="hero" style="background: linear-gradient(rgba(107, 74, 142, 0.85), rgba(139, 93, 180, 0.85)), url('<?php echo SITE_URL; ?>/assets/images/donation-help.jpg'); background-size: cover; background-position: center;">
+<div class="hero" style="background: linear-gradient(rgba(255, 107, 107, 0.85), rgba(255, 142, 83, 0.85)), url('<?php echo SITE_URL; ?>/assets/images/donation-help.jpg'); background-size: cover; background-position: center;">
     <h1>Donate Now</h1>
     <div class="breadcrumb">
         <a href="<?php echo SITE_URL; ?>/index.php"><i class="fas fa-home"></i> Home</a>

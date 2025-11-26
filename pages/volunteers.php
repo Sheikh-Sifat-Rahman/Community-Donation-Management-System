@@ -58,7 +58,7 @@ $volunteers_query = "SELECT * FROM VOLUNTEERS ORDER BY Vol_Name";
 $volunteers_result = mysqli_query($conn, $volunteers_query);
 ?>
 
-<div class="hero" style="background: linear-gradient(rgba(107, 74, 142, 0.85), rgba(139, 93, 180, 0.85)), url('<?php echo SITE_URL; ?>/assets/images/volunteer-team.jpg'); background-size: cover; background-position: center;">
+<div class="hero" style="background: linear-gradient(rgba(255, 107, 107, 0.85), rgba(255, 142, 83, 0.85)), url('<?php echo SITE_URL; ?>/assets/images/volunteer-team.jpg'); background-size: cover; background-position: center;">
     <h1>Our Volunteers</h1>
     <div class="breadcrumb">
         <a href="<?php echo SITE_URL; ?>/index.php"><i class="fas fa-home"></i> Home</a>
@@ -82,7 +82,7 @@ $volunteers_result = mysqli_query($conn, $volunteers_query);
     
     <!-- Add Volunteer Form -->
     <div style="background: white; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.1); padding: 40px; margin-bottom: 50px;">
-        <h2 style="font-size: 28px; color: #6b4a8e; margin-bottom: 10px; text-align: center;">
+        <h2 style="font-size: 28px; color: #ff6b6b; margin-bottom: 10px; text-align: center;">
             <i class="fas fa-user-plus"></i> Join Our Volunteer Team
         </h2>
         <p style="text-align: center; color: #666; margin-bottom: 30px;">Fill out the form below to become a volunteer</p>
@@ -140,7 +140,7 @@ $volunteers_result = mysqli_query($conn, $volunteers_query);
             
             <div style="text-align: center; margin-top: 30px;">
                 <button type="submit" name="add_volunteer" 
-                        style="background: linear-gradient(135deg, #6b4a8e, #8b5db4); color: white; padding: 15px 50px; border: none; border-radius: 50px; font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(107, 74, 142, 0.3); transition: all 0.3s;">
+                        style="background: linear-gradient(135deg, #ff6b6b, #ff8e53); color: white; padding: 15px 50px; border: none; border-radius: 50px; font-size: 16px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3); transition: all 0.3s;">
                     <i class="fas fa-paper-plane"></i> Register as Volunteer
                 </button>
             </div>
@@ -148,14 +148,14 @@ $volunteers_result = mysqli_query($conn, $volunteers_query);
     </div>
     
     <div style="text-align: center; margin-bottom: 50px;">
-        <h2 style="font-size: 36px; color: #6b4a8e; margin-bottom: 15px;">Meet Our Amazing Team</h2>
+        <h2 style="font-size: 36px; color: #ff6b6b; margin-bottom: 15px;">Meet Our Amazing Team</h2>
         <p style="font-size: 18px; color: #666;">Dedicated individuals making a difference every day</p>
     </div>
     
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
         <?php while ($volunteer = mysqli_fetch_assoc($volunteers_result)): ?>
         <div style="background: white; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden; text-align: center;">
-            <div style="height: 150px; background: linear-gradient(135deg, #6b4a8e, #8b5db4); display: flex; align-items: center; justify-content: center; color: white; font-size: 64px;">
+            <div style="height: 150px; background: linear-gradient(135deg, #ff6b6b, #ff8e53); display: flex; align-items: center; justify-content: center; color: white; font-size: 64px;">
                 <i class="fas fa-user-circle"></i>
             </div>
             <div style="padding: 25px;">

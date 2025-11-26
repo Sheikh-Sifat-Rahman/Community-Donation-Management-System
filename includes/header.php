@@ -38,11 +38,20 @@ if (file_exists($config_path)) {
     <header>
         <div class="header-content">
             <a href="<?php echo SITE_URL; ?>/index.php" class="logo">
-                <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
-                    <circle cx="25" cy="25" r="20" fill="#6b4a8e" opacity="0.2"/>
-                    <path d="M25 10 C 15 15, 15 35, 25 40 C 35 35, 35 15, 25 10 Z" fill="#6b4a8e"/>
-                    <circle cx="25" cy="25" r="8" fill="white"/>
-                    <path d="M 22 25 L 25 28 L 30 20" stroke="#6b4a8e" stroke-width="2" fill="none"/>
+                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Warm gradient background circle -->
+                    <circle cx="25" cy="25" r="22" fill="url(#warmGradient)" opacity="0.2"/>
+                    <!-- Two hands forming heart shape -->
+                    <path d="M 25 18 Q 20 12, 13 18 Q 10 20, 13 25 L 25 35" fill="url(#warmGradient)"/>
+                    <path d="M 25 18 Q 30 12, 37 18 Q 40 20, 37 25 L 25 35" fill="url(#warmGradient)"/>
+                    <!-- Heart in center -->
+                    <circle cx="25" cy="22" r="3" fill="#ff6b6b"/>
+                    <defs>
+                        <linearGradient id="warmGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ff8e53;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
                 </svg>
                 <div class="logo-text">
                     <h1><?php echo SITE_NAME; ?></h1>

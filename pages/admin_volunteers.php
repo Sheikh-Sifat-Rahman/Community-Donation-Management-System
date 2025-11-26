@@ -86,7 +86,7 @@ $processed_seekers_query = "SELECT * FROM Aid_Seeker WHERE Status IN ('Approved'
 $processed_seekers = mysqli_query($conn, $processed_seekers_query);
 ?>
 
-<div class="hero" style="background: linear-gradient(rgba(107, 74, 142, 0.85), rgba(139, 93, 180, 0.85)), url('<?php echo SITE_URL; ?>/assets/images/volunteer-team.jpg'); background-size: cover; background-position: center;">
+<div class="hero" style="background: linear-gradient(rgba(255, 107, 107, 0.85), rgba(255, 142, 83, 0.85)), url('<?php echo SITE_URL; ?>/assets/images/volunteer-team.jpg'); background-size: cover; background-position: center;">
     <h1><i class="fas fa-users-cog"></i> Volunteer Management</h1>
     <div class="breadcrumb">
         <a href="<?php echo SITE_URL; ?>/index.php"><i class="fas fa-home"></i> Home</a>
@@ -111,9 +111,9 @@ $processed_seekers = mysqli_query($conn, $processed_seekers_query);
     <?php endif; ?>
 
     <!-- Tabs Navigation -->
-    <div style="margin-bottom: 30px; border-bottom: 3px solid #6b4a8e;">
+    <div style="margin-bottom: 30px; border-bottom: 3px solid #ff6b6b;">
         <div style="display: flex; gap: 10px;">
-            <button onclick="showTab('pickups')" id="pickups-tab" class="tab-btn active-tab" style="padding: 15px 30px; background: #6b4a8e; color: white; border: none; cursor: pointer; font-size: 16px; font-weight: 600; border-radius: 8px 8px 0 0;">
+            <button onclick="showTab('pickups')" id="pickups-tab" class="tab-btn active-tab" style="padding: 15px 30px; background: #ff6b6b; color: white; border: none; cursor: pointer; font-size: 16px; font-weight: 600; border-radius: 8px 8px 0 0;">
                 <i class="fas fa-truck-pickup"></i> Pickup Assignments (<?php echo mysqli_num_rows($pending_pickups); ?>)
             </button>
             <button onclick="showTab('seekers')" id="seekers-tab" class="tab-btn" style="padding: 15px 30px; background: #e0e0e0; color: #666; border: none; cursor: pointer; font-size: 16px; font-weight: 600; border-radius: 8px 8px 0 0;">
@@ -126,12 +126,12 @@ $processed_seekers = mysqli_query($conn, $processed_seekers_query);
     <div id="pickups-content" class="tab-content" style="display: block;">
         <!-- Pending Pickups -->
         <div style="margin-bottom: 50px;">
-            <h2 style="color: #6b4a8e; margin-bottom: 20px;"><i class="fas fa-clock"></i> Pending Home Pickups</h2>
+            <h2 style="color: #ff6b6b; margin-bottom: 20px;"><i class="fas fa-clock"></i> Pending Home Pickups</h2>
             
             <?php if (mysqli_num_rows($pending_pickups) > 0): ?>
             <div style="background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); overflow: hidden;">
                 <table style="width: 100%; border-collapse: collapse;">
-                    <thead style="background: linear-gradient(135deg, #6b4a8e, #8b5db4); color: white;">
+                    <thead style="background: linear-gradient(135deg, #ff6b6b, #ff8e53); color: white;">
                         <tr>
                             <th style="padding: 15px; text-align: left;">Date</th>
                             <th style="padding: 15px; text-align: left;">Donor</th>
@@ -171,7 +171,7 @@ $processed_seekers = mysqli_query($conn, $processed_seekers_query);
 
         <!-- Assigned Pickups -->
         <div>
-            <h2 style="color: #6b4a8e; margin-bottom: 20px;"><i class="fas fa-check-double"></i> Assigned Pickups</h2>
+            <h2 style="color: #ff6b6b; margin-bottom: 20px;"><i class="fas fa-check-double"></i> Assigned Pickups</h2>
             
             <?php if (mysqli_num_rows($assigned_pickups) > 0): ?>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px;">
@@ -207,7 +207,7 @@ $processed_seekers = mysqli_query($conn, $processed_seekers_query);
     <div id="seekers-content" class="tab-content" style="display: none;">
         <!-- Pending Seekers -->
         <div style="margin-bottom: 50px;">
-            <h2 style="color: #6b4a8e; margin-bottom: 20px;"><i class="fas fa-hourglass-half"></i> Pending Approvals</h2>
+            <h2 style="color: #ff6b6b; margin-bottom: 20px;"><i class="fas fa-hourglass-half"></i> Pending Approvals</h2>
             
             <?php if (mysqli_num_rows($pending_seekers) > 0): ?>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 25px;">
@@ -261,12 +261,12 @@ $processed_seekers = mysqli_query($conn, $processed_seekers_query);
 
         <!-- Processed Seekers -->
         <div>
-            <h2 style="color: #6b4a8e; margin-bottom: 20px;"><i class="fas fa-history"></i> Recent Decisions</h2>
+            <h2 style="color: #ff6b6b; margin-bottom: 20px;"><i class="fas fa-history"></i> Recent Decisions</h2>
             
             <?php if (mysqli_num_rows($processed_seekers) > 0): ?>
             <div style="background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); overflow: hidden;">
                 <table style="width: 100%; border-collapse: collapse;">
-                    <thead style="background: linear-gradient(135deg, #6b4a8e, #8b5db4); color: white;">
+                    <thead style="background: linear-gradient(135deg, #ff6b6b, #ff8e53); color: white;">
                         <tr>
                             <th style="padding: 15px; text-align: left;">Name</th>
                             <th style="padding: 15px; text-align: left;">NID</th>
@@ -302,7 +302,7 @@ $processed_seekers = mysqli_query($conn, $processed_seekers_query);
 <!-- Assign Volunteer Modal -->
 <div id="assignModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; justify-content: center; align-items: center;">
     <div style="background: white; padding: 40px; border-radius: 15px; max-width: 500px; width: 90%;">
-        <h2 style="color: #6b4a8e; margin-bottom: 20px;"><i class="fas fa-user-plus"></i> Assign Volunteer</h2>
+        <h2 style="color: #ff6b6b; margin-bottom: 20px;"><i class="fas fa-user-plus"></i> Assign Volunteer</h2>
         <form method="POST">
             <input type="hidden" name="donation_id" id="modal_donation_id">
             
@@ -352,7 +352,7 @@ function showTab(tabName) {
     // Show selected tab
     document.getElementById(tabName + '-content').style.display = 'block';
     const activeBtn = document.getElementById(tabName + '-tab');
-    activeBtn.style.background = '#6b4a8e';
+    activeBtn.style.background = '#ff6b6b';
     activeBtn.style.color = 'white';
     activeBtn.classList.add('active-tab');
 }

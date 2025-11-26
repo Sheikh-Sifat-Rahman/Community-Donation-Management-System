@@ -52,7 +52,7 @@ $recent_result = mysqli_query($conn, $recent_query);
 }
 
 .dashboard-header {
-    background: linear-gradient(135deg, #6b4a8e, #8e6bb4);
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
     color: white;
     padding: 40px;
     border-radius: 10px;
@@ -92,7 +92,7 @@ $recent_result = mysqli_query($conn, $recent_query);
 .stat-card-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #6b4a8e, #8e6bb4);
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -105,7 +105,7 @@ $recent_result = mysqli_query($conn, $recent_query);
 .stat-card-value {
     font-size: 32px;
     font-weight: 700;
-    color: #6b4a8e;
+    color: #ff6b6b;
     margin-bottom: 5px;
 }
 
@@ -132,12 +132,12 @@ $recent_result = mysqli_query($conn, $recent_query);
 }
 
 .section-header h2 {
-    color: #6b4a8e;
+    color: #ff6b6b;
     font-size: 24px;
 }
 
 .section-header a {
-    color: #6b4a8e;
+    color: #ff6b6b;
     text-decoration: none;
     font-weight: 600;
 }
@@ -166,7 +166,7 @@ $recent_result = mysqli_query($conn, $recent_query);
 }
 
 .action-btn:hover {
-    background: #6b4a8e;
+    background: #ff6b6b;
     color: white;
     transform: translateX(5px);
 }
@@ -185,7 +185,7 @@ $recent_result = mysqli_query($conn, $recent_query);
     padding: 12px;
     text-align: left;
     font-weight: 600;
-    color: #6b4a8e;
+    color: #ff6b6b;
     border-bottom: 2px solid #e0e0e0;
 }
 
@@ -218,7 +218,7 @@ $recent_result = mysqli_query($conn, $recent_query);
 .btn-primary {
     display: inline-block;
     padding: 12px 30px;
-    background: linear-gradient(135deg, #6b4a8e, #8e6bb4);
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
     color: white;
     text-decoration: none;
     border-radius: 25px;
@@ -228,7 +228,7 @@ $recent_result = mysqli_query($conn, $recent_query);
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(107, 74, 142, 0.3);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
 }
 </style>
 

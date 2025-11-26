@@ -112,7 +112,7 @@ INSERT INTO WAREHOUSE (Item_Name, quantity) VALUES
 
 -- Insert sample volunteer
 INSERT INTO VOLUNTEERS (Vol_Name, Email, Phone, Gender, Area_Assigned) VALUES
-('Eluse A. Phillips', 'eluse@cleanhearts.com', '555-0100', 'Female', 'Watkins Ridge');
+('Sarah J. Anderson', 'sarah@warmhands.org', '555-0100', 'Female', 'Downtown District');
 
 -- ==========================================
 -- VIEWS FOR USER DATA ISOLATION (DBMS Project Requirement)

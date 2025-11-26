@@ -82,9 +82,9 @@ $total_aid_requests = mysqli_num_rows($aid_requests);
     </div>
 
     <!-- Tabs Navigation -->
-    <div style="margin-bottom: 30px; border-bottom: 3px solid #6b4a8e;">
+    <div style="margin-bottom: 30px; border-bottom: 3px solid #ff6b6b;">
         <div style="display: flex; gap: 10px;">
-            <button onclick="showTab('donations')" id="donations-tab" class="tab-btn active-tab" style="padding: 15px 30px; background: #6b4a8e; color: white; border: none; cursor: pointer; font-size: 16px; font-weight: 600; border-radius: 8px 8px 0 0;">
+            <button onclick="showTab('donations')" id="donations-tab" class="tab-btn active-tab" style="padding: 15px 30px; background: #ff6b6b; color: white; border: none; cursor: pointer; font-size: 16px; font-weight: 600; border-radius: 8px 8px 0 0;">
                 <i class="fas fa-gift"></i> My Donations
             </button>
             <button onclick="showTab('volunteer')" id="volunteer-tab" class="tab-btn" style="padding: 15px 30px; background: #e0e0e0; color: #666; border: none; cursor: pointer; font-size: 16px; font-weight: 600; border-radius: 8px 8px 0 0;">
@@ -98,12 +98,12 @@ $total_aid_requests = mysqli_num_rows($aid_requests);
 
     <!-- Donations Tab -->
     <div id="donations-content" class="tab-content" style="display: block;">
-        <h2 style="color: #6b4a8e; margin-bottom: 25px;"><i class="fas fa-history"></i> Donation History</h2>
+        <h2 style="color: #ff6b6b; margin-bottom: 25px;"><i class="fas fa-history"></i> Donation History</h2>
         
         <?php if ($total_donations > 0): ?>
         <div style="background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); overflow: hidden;">
             <table style="width: 100%; border-collapse: collapse;">
-                <thead style="background: linear-gradient(135deg, #6b4a8e, #8b5db4); color: white;">
+                <thead style="background: linear-gradient(135deg, #ff6b6b, #ff8e53); color: white;">
                     <tr>
                         <th style="padding: 15px; text-align: left;">Date</th>
                         <th style="padding: 15px; text-align: left;">Item</th>
@@ -137,7 +137,7 @@ $total_aid_requests = mysqli_num_rows($aid_requests);
         <div style="text-align: center; padding: 60px; background: #f8f9fa; border-radius: 15px;">
             <i class="fas fa-box-open" style="font-size: 64px; color: #ddd; margin-bottom: 20px;"></i>
             <p style="font-size: 20px; color: #666; margin-bottom: 20px;">You haven't made any donations yet</p>
-            <a href="<?php echo SITE_URL; ?>/pages/donate.php" class="btn" style="display: inline-block; background: linear-gradient(135deg, #6b4a8e, #8b5db4); color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: 600;">
+            <a href="<?php echo SITE_URL; ?>/pages/donate.php" class="btn" style="display: inline-block; background: linear-gradient(135deg, #ff6b6b, #ff8e53); color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: 600;">
                 <i class="fas fa-heart"></i> Make Your First Donation
             </a>
         </div>
@@ -146,7 +146,7 @@ $total_aid_requests = mysqli_num_rows($aid_requests);
 
     <!-- Volunteer Work Tab -->
     <div id="volunteer-content" class="tab-content" style="display: none;">
-        <h2 style="color: #6b4a8e; margin-bottom: 25px;"><i class="fas fa-tasks"></i> My Volunteer Activities</h2>
+        <h2 style="color: #ff6b6b; margin-bottom: 25px;"><i class="fas fa-tasks"></i> My Volunteer Activities</h2>
         
         <?php if ($total_tasks > 0): ?>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px;">
@@ -199,7 +199,7 @@ $total_aid_requests = mysqli_num_rows($aid_requests);
 
     <!-- Aid Requests Tab -->
     <div id="aid-content" class="tab-content" style="display: none;">
-        <h2 style="color: #6b4a8e; margin-bottom: 25px;"><i class="fas fa-file-alt"></i> My Aid Applications</h2>
+        <h2 style="color: #ff6b6b; margin-bottom: 25px;"><i class="fas fa-file-alt"></i> My Aid Applications</h2>
         
         <?php if ($total_aid_requests > 0): ?>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 25px;">
@@ -268,7 +268,7 @@ function showTab(tabName) {
     // Show selected tab
     document.getElementById(tabName + '-content').style.display = 'block';
     const activeBtn = document.getElementById(tabName + '-tab');
-    activeBtn.style.background = '#6b4a8e';
+    activeBtn.style.background = '#ff6b6b';
     activeBtn.style.color = 'white';
     activeBtn.classList.add('active-tab');
 }

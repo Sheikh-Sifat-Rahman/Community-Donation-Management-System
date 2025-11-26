@@ -25,7 +25,7 @@ $donations_result = mysqli_query($conn, $donations_query);
 
 <div class="container">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-        <h2 style="color: #6b4a8e;">All Donations</h2>
+        <h2 style="color: #ff6b6b;">All Donations</h2>
         <a href="<?php echo SITE_URL; ?>/pages/donate.php" class="donate-btn">
             <i class="fas fa-plus"></i> New Donation
         </a>
@@ -33,7 +33,7 @@ $donations_result = mysqli_query($conn, $donations_query);
     
     <div style="background: white; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden;">
         <table style="width: 100%; border-collapse: collapse;">
-            <thead style="background: linear-gradient(135deg, #6b4a8e, #8b5db4); color: white;">
+            <thead style="background: linear-gradient(135deg, #ff6b6b, #ff8e53); color: white;">
                 <tr>
                     <th style="padding: 15px; text-align: left;">ID</th>
                     <th style="padding: 15px; text-align: left;">Donor Name</th>

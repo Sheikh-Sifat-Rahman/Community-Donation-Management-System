@@ -62,7 +62,7 @@ $stats['distributions'] = mysqli_fetch_assoc($distributions_result)['count'] ?? 
 }
 
 .admin-header {
-    background: linear-gradient(135deg, #6b4a8e, #8e6bb4);
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
     color: white;
     padding: 40px;
     border-radius: 10px;
@@ -105,7 +105,7 @@ $stats['distributions'] = mysqli_fetch_assoc($distributions_result)['count'] ?? 
 .admin-stat-card .icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #6b4a8e, #8e6bb4);
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -118,7 +118,7 @@ $stats['distributions'] = mysqli_fetch_assoc($distributions_result)['count'] ?? 
 .admin-stat-card .value {
     font-size: 32px;
     font-weight: 700;
-    color: #6b4a8e;
+    color: #ff6b6b;
     margin-bottom: 5px;
 }
 
@@ -152,7 +152,7 @@ $stats['distributions'] = mysqli_fetch_assoc($distributions_result)['count'] ?? 
 
 .management-card .card-icon {
     font-size: 48px;
-    color: #6b4a8e;
+    color: #ff6b6b;
     margin-bottom: 20px;
 }
 
@@ -171,7 +171,7 @@ $stats['distributions'] = mysqli_fetch_assoc($distributions_result)['count'] ?? 
 .management-card .action-btn {
     display: inline-block;
     padding: 10px 20px;
-    background: linear-gradient(135deg, #6b4a8e, #8e6bb4);
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
     color: white;
     border-radius: 5px;
     font-weight: 600;
@@ -179,7 +179,7 @@ $stats['distributions'] = mysqli_fetch_assoc($distributions_result)['count'] ?? 
 }
 
 .management-card:hover .action-btn {
-    background: linear-gradient(135deg, #8e6bb4, #6b4a8e);
+    background: linear-gradient(135deg, #ff8e53, #ff6b6b);
 }
 
 .recent-activity {
@@ -190,7 +190,7 @@ $stats['distributions'] = mysqli_fetch_assoc($distributions_result)['count'] ?? 
 }
 
 .recent-activity h2 {
-    color: #6b4a8e;
+    color: #ff6b6b;
     font-size: 24px;
     margin-bottom: 20px;
     padding-bottom: 15px;
@@ -221,7 +221,7 @@ $stats['distributions'] = mysqli_fetch_assoc($distributions_result)['count'] ?? 
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #6b4a8e;
+    color: #ff6b6b;
 }
 
 .activity-content {

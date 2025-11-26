@@ -16,7 +16,7 @@ require_once '../includes/header.php';
 <div class="container">
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
         <div>
-            <h2 style="font-size: 36px; color: #6b4a8e; margin-bottom: 20px;">Get In Touch</h2>
+            <h2 style="font-size: 36px; color: #ff6b6b; margin-bottom: 20px;">Get In Touch</h2>
             <p style="font-size: 16px; color: #666; margin-bottom: 30px;">
                 Have questions or want to learn more about our work? We'd love to hear from you!
             </p>

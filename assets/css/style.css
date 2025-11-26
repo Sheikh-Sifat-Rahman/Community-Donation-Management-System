@@ -13,7 +13,7 @@ body {
 
 /* Top Bar */
 .top-bar {
-    background-color: #2d1b4e;
+    background-color: #d9534f;
     color: white;
     padding: 10px 0;
     font-size: 14px;
@@ -74,7 +74,7 @@ header {
 }
 
 .logo-text h1 {
-    color: #6b4a8e;
+    color: #ff6b6b;
     font-size: 24px;
     font-weight: 700;
 }
@@ -100,7 +100,7 @@ nav a {
 }
 
 nav a:hover, nav a.active {
-    color: #6b4a8e;
+    color: #ff6b6b;
 }
 
 .cart-icon {
@@ -111,7 +111,7 @@ nav a:hover, nav a.active {
     position: absolute;
     top: -8px;
     right: -8px;
-    background-color: #6b4a8e;
+    background-color: #ff6b6b;
     color: white;
     border-radius: 50%;
     width: 20px;
@@ -149,22 +149,22 @@ nav a:hover, nav a.active {
 
 .login-btn {
     background: transparent;
-    border: 2px solid #6b4a8e;
-    color: #6b4a8e !important;
+    border: 2px solid #ff6b6b;
+    color: #ff6b6b !important;
 }
 
 .login-btn:hover {
-    background: #6b4a8e;
+    background: #ff6b6b;
     color: white !important;
 }
 
 .register-btn {
-    background: #6b4a8e;
+    background: #ff6b6b;
     color: white !important;
 }
 
 .register-btn:hover {
-    background: #8e6bb4;
+    background: #ff8e53;
     transform: translateY(-2px);
 }
 
@@ -210,12 +210,12 @@ nav a:hover, nav a.active {
 
 .user-menu .dropdown a:hover {
     background: #f5f5f5;
-    color: #6b4a8e;
+    color: #ff6b6b;
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(107, 74, 142, 0.8), rgba(107, 74, 142, 0.8)), url('../images/hero-bg.jpg');
+    background: linear-gradient(rgba(255, 107, 107, 0.8), rgba(217, 83, 79, 0.8)), url('../images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     color: white;
@@ -278,7 +278,7 @@ nav a:hover, nav a.active {
 
 /* Amount Slider */
 .amount-slider {
-    background: linear-gradient(135deg, #8b5db4, #6b4a8e);
+    background: linear-gradient(135deg, #ff8e53, #ff6b6b);
     color: white;
     padding: 30px;
     border-radius: 10px;
@@ -326,9 +326,9 @@ nav a:hover, nav a.active {
 }
 
 .amount-btn:hover, .amount-btn.active {
-    background: linear-gradient(135deg, #8b5db4, #6b4a8e);
+    background: linear-gradient(135deg, #ff8e53, #ff6b6b);
     color: white;
-    border-color: #6b4a8e;
+    border-color: #ff6b6b;
 }
 
 /* Payment Method */
@@ -386,7 +386,7 @@ nav a:hover, nav a.active {
 
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
     outline: none;
-    border-color: #6b4a8e;
+    border-color: #ff6b6b;
 }
 
 /* Submit Button */
@@ -439,7 +439,7 @@ nav a:hover, nav a.active {
     border-radius: 20px;
     font-size: 14px;
     font-weight: 600;
-    color: #6b4a8e;
+    color: #ff6b6b;
 }
 
 .campaign-progress {
@@ -477,8 +477,8 @@ nav a:hover, nav a.active {
 
 .details-btn {
     background-color: transparent;
-    border: 2px solid #6b4a8e;
-    color: #6b4a8e;
+    border: 2px solid #ff6b6b;
+    color: #ff6b6b;
     padding: 10px 25px;
     border-radius: 25px;
     font-weight: 600;
@@ -490,7 +490,7 @@ nav a:hover, nav a.active {
 }
 
 .details-btn:hover {
-    background-color: #6b4a8e;
+    background-color: #ff6b6b;
     color: white;
 }
 
@@ -548,7 +548,7 @@ nav a:hover, nav a.active {
 
 /* Footer */
 footer {
-    background: linear-gradient(135deg, #2d1b4e, #1a0f30);
+    background: linear-gradient(135deg, #d9534f, #b32d29);
     color: white;
     padding: 60px 20px 20px;
 }
@@ -594,7 +594,7 @@ footer {
 
 /* Subscribe Section */
 .subscribe-section {
-    background: linear-gradient(135deg, #2d1b4e, #1a0f30);
+    background: linear-gradient(135deg, #d9534f, #b32d29);
     padding: 40px 20px;
     text-align: center;
 }
@@ -668,13 +668,13 @@ input[type="number"]:focus,
 select:focus,
 textarea:focus {
     outline: none;
-    border-color: #6b4a8e !important;
-    box-shadow: 0 0 0 3px rgba(107, 74, 142, 0.1);
+    border-color: #ff6b6b !important;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
 }
 
 button[type="submit"]:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(107, 74, 142, 0.4) !important;
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4) !important;
 }
 
 button[type="submit"]:active {
