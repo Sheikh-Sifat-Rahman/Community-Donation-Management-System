@@ -9,7 +9,7 @@ $items_result = mysqli_query($conn, $items_query);
 ?>
 
 <!-- Hero Section -->
-<div class="hero">
+<div class="hero" style="background: linear-gradient(rgba(107, 74, 142, 0.85), rgba(139, 93, 180, 0.85)), url('<?php echo SITE_URL; ?>/assets/images/donation-help.jpg'); background-size: cover; background-position: center;">
     <h1>Donate Now</h1>
     <div class="breadcrumb">
         <a href="<?php echo SITE_URL; ?>/index.php"><i class="fas fa-home"></i> Home</a>
@@ -22,28 +22,13 @@ $items_result = mysqli_query($conn, $items_query);
 <div class="container">
     <!-- Notice Alert -->
     <div class="notice-alert">
-        <strong>Notice:</strong> Test Mode Is Enabled. While In Test Mode No Live Donations Are Processed.
+        <strong>Notice:</strong> You can donate items from your home or bring them directly to our warehouse.
     </div>
 
     <div class="donation-section">
         <!-- Donation Form -->
         <div class="donation-form">
             <form id="donationForm" method="POST" action="<?php echo SITE_URL; ?>/includes/process_donation.php">
-                <!-- Amount Slider -->
-                <div class="amount-slider">
-                    <span style="font-size: 36px;">৳</span>
-                    <input type="number" id="donationAmount" name="amount" value="5000" min="1" required>
-                </div>
-
-                <!-- Amount Buttons -->
-                <div class="amount-buttons">
-                    <button type="button" class="amount-btn" data-amount="1000">৳1,000</button>
-                    <button type="button" class="amount-btn" data-amount="5000">৳5,000</button>
-                    <button type="button" class="amount-btn" data-amount="10000">৳10,000</button>
-                    <button type="button" class="amount-btn active" data-amount="50000">৳50,000</button>
-                    <button type="button" class="amount-btn" id="customBtn">Custom Amount</button>
-                </div>
-
                 <!-- Select Item -->
                 <div class="form-group">
                     <label for="item_id"><strong>Select Item to Donate</strong></label>
@@ -51,23 +36,33 @@ $items_result = mysqli_query($conn, $items_query);
                         <option value="">-- Select Item --</option>
                         <?php while($item = mysqli_fetch_assoc($items_result)): ?>
                             <option value="<?php echo $item['Item_ID']; ?>">
-                                <?php echo $item['Item_Name']; ?> (Available: <?php echo $item['quantity']; ?>)
+                                <?php echo $item['Item_Name']; ?>
                             </option>
                         <?php endwhile; ?>
                     </select>
                 </div>
+                
+                <!-- Quantity -->
+                <div class="form-group">
+                    <label for="quantity"><strong>Quantity</strong></label>
+                    <input type="number" name="quantity" id="quantity" placeholder="Enter quantity" min="1" required style="padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px;">
+                </div>
 
-                <!-- Payment Method -->
+                <!-- Donation Location -->
                 <div class="payment-method">
-                    <h3>Select Payment Method</h3>
+                    <h3>Select Donation Location</h3>
                     <div class="payment-options">
                         <div class="payment-option">
-                            <input type="radio" id="testDonation" name="payment_method" value="Test Donation" checked>
-                            <label for="testDonation">Test Donation</label>
+                            <input type="radio" id="fromHome" name="payment_method" value="Pickup from Home" checked>
+                            <label for="fromHome">
+                                <i class="fas fa-home"></i> Pickup from Home
+                            </label>
                         </div>
                         <div class="payment-option">
-                            <input type="radio" id="offlineDonation" name="payment_method" value="Offline Donation">
-                            <label for="offlineDonation">Offline Donation</label>
+                            <input type="radio" id="toWarehouse" name="payment_method" value="Deliver to Warehouse">
+                            <label for="toWarehouse">
+                                <i class="fas fa-warehouse"></i> Deliver to Warehouse
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -106,48 +101,6 @@ $items_result = mysqli_query($conn, $items_query);
                     <i class="fas fa-hand-holding-heart"></i> Donate Now
                 </button>
             </form>
-        </div>
-
-        <!-- Campaign Card & Organizer -->
-        <div>
-            <!-- Campaign Card -->
-            <div class="campaign-card">
-                <div class="campaign-image">
-                    <img src="<?php echo SITE_URL; ?>/assets/images/campaign.jpg" alt="Campaign">
-                    <span class="campaign-badge">FOOD</span>
-                </div>
-                <div class="campaign-progress">
-                    <div class="progress-info">
-                        <span><strong>Raised $30,050</strong></span>
-                        <span><strong>Goal $50,000</strong></span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 60%"></div>
-                    </div>
-                    <h3 class="campaign-title">Raise Funds For Clean & Healthy Food</h3>
-                    <button class="details-btn">
-                        <i class="fas fa-arrow-right"></i> Donation Details
-                    </button>
-                </div>
-            </div>
-
-            <!-- Organizer Card -->
-            <div class="organizer-card">
-                <h3>Organizer</h3>
-                <div class="organizer-info">
-                    <div class="organizer-avatar">
-                        <img src="<?php echo SITE_URL; ?>/assets/images/organizer.jpg" alt="Eluse A. Phillips">
-                    </div>
-                    <div class="organizer-details">
-                        <h4>Eluse A. Phillips</h4>
-                        <p>Watkins Ridge</p>
-                    </div>
-                </div>
-                <div class="organizer-address">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span><strong>Address:</strong> 350 5th Avenue York</span>
-                </div>
-            </div>
         </div>
     </div>
 </div>

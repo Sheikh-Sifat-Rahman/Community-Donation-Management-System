@@ -23,7 +23,7 @@ if (file_exists($config_path)) {
         <div class="container">
             <div class="top-bar-left">
                 <span><i class="fas fa-envelope"></i> <?php echo SITE_EMAIL; ?></span>
-                <span><i class="fas fa-map-marker-alt"></i> 18 Jaclin Harbour Roadstown, PA 19020</span>
+                <span><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</span>
             </div>
             <div class="top-bar-right">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -54,7 +54,6 @@ if (file_exists($config_path)) {
                 <ul>
                     <li><a href="<?php echo SITE_URL; ?>/index.php" class="<?php echo ($current_page == 'home') ? 'active' : ''; ?>">Home</a></li>
                     <li><a href="<?php echo SITE_URL; ?>/pages/about.php" class="<?php echo ($current_page == 'about') ? 'active' : ''; ?>">About Us</a></li>
-                    <li><a href="<?php echo SITE_URL; ?>/pages/donation.php" class="<?php echo ($current_page == 'donation') ? 'active' : ''; ?>">Donation</a></li>
                     <?php if (isset($_SESSION['user_id'])): ?>
                         <li><a href="<?php echo SITE_URL; ?>/pages/dashboard.php" class="<?php echo ($current_page == 'dashboard') ? 'active' : ''; ?>">Dashboard</a></li>
                     <?php endif; ?>
@@ -62,7 +61,6 @@ if (file_exists($config_path)) {
                         <li><a href="<?php echo SITE_URL; ?>/pages/pages.php" class="<?php echo ($current_page == 'pages') ? 'active' : ''; ?>">Admin Dashboard</a></li>
                     <?php endif; ?>
                     <li><a href="<?php echo SITE_URL; ?>/pages/events.php" class="<?php echo ($current_page == 'events') ? 'active' : ''; ?>">Events</a></li>
-                    <li><a href="<?php echo SITE_URL; ?>/pages/volunteers.php" class="<?php echo ($current_page == 'volunteers') ? 'active' : ''; ?>">Volunteers</a></li>
                     <?php if (isset($_SESSION['user_id'])): ?>
                         <li class="user-menu">
                             <a href="#"><i class="fas fa-user"></i> <?php echo htmlspecialchars($_SESSION['user_name']); ?></a>
@@ -75,7 +73,6 @@ if (file_exists($config_path)) {
                         <li><a href="<?php echo SITE_URL; ?>/pages/login.php" class="login-btn"><i class="fas fa-sign-in-alt"></i> Login</a></li>
                         <li><a href="<?php echo SITE_URL; ?>/pages/register.php" class="register-btn"><i class="fas fa-user-plus"></i> Register</a></li>
                     <?php endif; ?>
-                    <li><a href="<?php echo SITE_URL; ?>/pages/donate.php" class="donate-btn"><i class="fas fa-hand-holding-heart"></i> Donate Now</a></li>
                 </ul>
             </nav>
         </div>

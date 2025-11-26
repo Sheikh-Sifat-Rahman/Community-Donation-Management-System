@@ -9,6 +9,15 @@ checkAuth();
 
 $user = getCurrentUser();
 
+// Route based on user role
+if (!isAdmin()) {
+    // Regular users go to their own dashboard
+    header('Location: ' . SITE_URL . '/pages/user_dashboard.php');
+    exit();
+}
+
+// Admin continues to see admin dashboard below
+
 // Get user statistics
 $stats = [
     'donations' => 0,
@@ -242,7 +251,7 @@ $recent_result = mysqli_query($conn, $recent_query);
             <div class="stat-card-icon">
                 <i class="fas fa-dollar-sign"></i>
             </div>
-            <div class="stat-card-value">$<?php echo number_format($stats['total_donated'], 2); ?></div>
+            <div class="stat-card-value"><?php echo number_format($stats['total_donated']); ?></div>
             <div class="stat-card-label">Items Donated</div>
         </div>
 
@@ -271,6 +280,10 @@ $recent_result = mysqli_query($conn, $recent_query);
             <a href="<?php echo SITE_URL; ?>/pages/volunteers.php" class="action-btn">
                 <i class="fas fa-hands-helping"></i>
                 <span>Volunteer</span>
+            </a>
+            <a href="<?php echo SITE_URL; ?>/pages/aid_seekers.php" class="action-btn">
+                <i class="fas fa-users"></i>
+                <span>Aid Seekers</span>
             </a>
             <a href="<?php echo SITE_URL; ?>/pages/warehouse.php" class="action-btn">
                 <i class="fas fa-warehouse"></i>

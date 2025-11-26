@@ -331,12 +331,12 @@ $stats['distributions'] = mysqli_fetch_assoc($distributions_result)['count'] ?? 
             <span class="action-btn">View Donations</span>
         </a>
 
-        <a href="<?php echo SITE_URL; ?>/pages/volunteers.php" class="management-card">
+        <a href="<?php echo SITE_URL; ?>/pages/admin_volunteers.php" class="management-card">
             <div class="card-icon">
-                <i class="fas fa-users"></i>
+                <i class="fas fa-users-cog"></i>
             </div>
-            <h3>Volunteers</h3>
-            <p>Manage volunteer registrations and assignments</p>
+            <h3>Volunteer Management</h3>
+            <p>Assign volunteers to pickups and approve aid seekers</p>
             <span class="action-btn">Manage Volunteers</span>
         </a>
 
@@ -349,7 +349,7 @@ $stats['distributions'] = mysqli_fetch_assoc($distributions_result)['count'] ?? 
             <span class="action-btn">View Warehouse</span>
         </a>
 
-        <a href="#" class="management-card">
+        <a href="<?php echo SITE_URL; ?>/pages/aid_seekers.php" class="management-card">
             <div class="card-icon">
                 <i class="fas fa-people-carry"></i>
             </div>
