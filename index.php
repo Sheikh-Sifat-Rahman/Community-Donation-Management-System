@@ -4,9 +4,14 @@ $page_title = 'Home';
 require_once 'includes/header.php';
 require_once 'includes/auth.php';
 
-// Check if user is logged in, if yes redirect to dashboard, else redirect to login
+// Check if user is logged in
 if (isLoggedIn()) {
-    header('Location: ' . SITE_URL . '/pages/dashboard.php');
+    // Redirect based on user role
+    if (isAdmin()) {
+        header('Location: ' . SITE_URL . '/pages/pages.php');
+    } else {
+        header('Location: ' . SITE_URL . '/pages/dashboard.php');
+    }
     exit();
 } else {
     header('Location: ' . SITE_URL . '/pages/login.php');

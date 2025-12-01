@@ -2,6 +2,7 @@
 $current_page = 'aid_seekers';
 $page_title = 'Aid Seekers';
 require_once '../includes/header.php';
+require_once '../includes/auth.php';
 
 // Handle form submission
 $success_message = '';
@@ -81,7 +82,8 @@ $stats = mysqli_fetch_assoc($stats_result);
     </div>
     <?php endif; ?>
     
-    <!-- Statistics Card -->
+    <!-- Statistics Card - Admin Only -->
+    <?php if (isAdmin()): ?>
     <div style="background: linear-gradient(135deg, #ff6b6b, #ff8e53); color: white; border-radius: 15px; padding: 30px; margin-bottom: 40px; box-shadow: 0 5px 25px rgba(0,0,0,0.15);">
         <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 20px;">
             <div style="text-align: center;">
@@ -91,6 +93,7 @@ $stats = mysqli_fetch_assoc($stats_result);
             </div>
         </div>
     </div>
+    <?php endif; ?>
     
     <!-- Add Aid Seeker Form -->
     <div style="background: white; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.1); padding: 40px; margin-bottom: 50px;">
@@ -236,7 +239,8 @@ $stats = mysqli_fetch_assoc($stats_result);
         </form>
     </div>
     
-    <!-- Aid Seekers List -->
+    <!-- Aid Seekers List - Admin Only -->
+    <?php if (isAdmin()): ?>
     <div style="text-align: center; margin-bottom: 30px;">
         <h2 style="font-size: 36px; color: #ff6b6b; margin-bottom: 15px;">Registered Aid Seekers</h2>
         <p style="font-size: 18px; color: #666;">People who need our support</p>
@@ -311,6 +315,7 @@ $stats = mysqli_fetch_assoc($stats_result);
         <i class="fas fa-users" style="font-size: 72px; color: #ddd; margin-bottom: 20px;"></i>
         <p style="font-size: 18px; color: #888;">No aid seekers registered yet.</p>
     </div>
+    <?php endif; ?>
     <?php endif; ?>
 </div>
 

@@ -1,5 +1,4 @@
--- Community Donation Database Schema
--- Drop existing tables if they exist
+
 DROP TABLE IF EXISTS DISTRIBUTION;
 DROP TABLE IF EXISTS AID_REQUEST;
 DROP TABLE IF EXISTS DONATION;
@@ -8,7 +7,6 @@ DROP TABLE IF EXISTS VOLUNTEERS;
 DROP TABLE IF EXISTS WAREHOUSE;
 DROP TABLE IF EXISTS DONOR;
 
--- Create DONOR table
 CREATE TABLE DONOR (
     Donor_ID INT PRIMARY KEY AUTO_INCREMENT,
     Name VARCHAR(255) NOT NULL,
@@ -19,7 +17,7 @@ CREATE TABLE DONOR (
     Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create WAREHOUSE table
+
 CREATE TABLE WAREHOUSE (
     Item_ID INT PRIMARY KEY AUTO_INCREMENT,
     Item_Name VARCHAR(255) UNIQUE NOT NULL,
@@ -27,7 +25,7 @@ CREATE TABLE WAREHOUSE (
     CHECK (quantity >= 0)
 );
 
--- Create VOLUNTEERS table
+
 CREATE TABLE VOLUNTEERS (
     Volunteer_ID INT PRIMARY KEY AUTO_INCREMENT,
     Vol_Name VARCHAR(255) NOT NULL,
@@ -38,7 +36,7 @@ CREATE TABLE VOLUNTEERS (
     Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create Aid_Seeker table
+
 CREATE TABLE Aid_Seeker (
     Seeker_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
     Seeker_Name VARCHAR(255) NOT NULL,
@@ -57,7 +55,7 @@ CREATE TABLE Aid_Seeker (
     Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create DONATION table
+
 CREATE TABLE DONATION (
     Donation_ID INT PRIMARY KEY AUTO_INCREMENT,
     Donor_ID INT NOT NULL,
@@ -71,7 +69,7 @@ CREATE TABLE DONATION (
     FOREIGN KEY (Item_ID) REFERENCES WAREHOUSE(Item_ID) ON DELETE CASCADE
 );
 
--- Create AID_REQUEST table
+
 CREATE TABLE AID_REQUEST (
     Request_ID INT NOT NULL AUTO_INCREMENT,
     Item_ID INT NOT NULL,
@@ -87,7 +85,7 @@ CREATE TABLE AID_REQUEST (
     FOREIGN KEY (Item_ID) REFERENCES WAREHOUSE(Item_ID) ON DELETE CASCADE
 );
 
--- Create DISTRIBUTION table
+
 CREATE TABLE DISTRIBUTION (
     Distribution_ID INT PRIMARY KEY AUTO_INCREMENT,
     Volunteer_ID INT NOT NULL,
@@ -102,7 +100,7 @@ CREATE TABLE DISTRIBUTION (
     FOREIGN KEY (Seeker_ID) REFERENCES Aid_Seeker(Seeker_ID) ON DELETE CASCADE
 );
 
--- Insert sample data for WAREHOUSE items
+
 INSERT INTO WAREHOUSE (Item_Name, quantity) VALUES
 ('Food Items', 1000),
 ('Clothing', 500),
@@ -110,16 +108,10 @@ INSERT INTO WAREHOUSE (Item_Name, quantity) VALUES
 ('Books', 200),
 ('Water', 800);
 
--- Insert sample volunteer
 INSERT INTO VOLUNTEERS (Vol_Name, Email, Phone, Gender, Area_Assigned) VALUES
 ('Sarah J. Anderson', 'sarah@warmhands.org', '555-0100', 'Female', 'Downtown District');
 
--- ==========================================
--- VIEWS FOR USER DATA ISOLATION (DBMS Project Requirement)
--- ==========================================
 
--- View 1: User Donation History
--- Users can only see their own donations
 CREATE OR REPLACE VIEW user_donation_history AS
 SELECT 
     d.Donation_ID,
@@ -135,8 +127,6 @@ JOIN DONOR don ON d.Donor_ID = don.Donor_ID
 JOIN users u ON don.Email = u.email
 ORDER BY d.Date_Donated DESC;
 
--- View 2: User Volunteer Activities
--- Users can only see their own volunteer assignments
 CREATE OR REPLACE VIEW user_volunteer_activities AS
 SELECT 
     va.Assignment_ID,
@@ -161,8 +151,6 @@ JOIN VOLUNTEERS v ON va.Volunteer_ID = v.Volunteer_ID
 JOIN users u ON v.Email = u.email
 ORDER BY va.Assigned_Date DESC;
 
--- View 3: User Aid Requests
--- Users can only see their own aid seeker applications
 CREATE OR REPLACE VIEW user_aid_requests AS
 SELECT 
     a.Seeker_ID,
@@ -184,8 +172,7 @@ FROM Aid_Seeker a
 JOIN users u ON a.Email = u.email
 ORDER BY a.Created_At DESC;
 
--- View 4: Available Pickup Tasks
--- Users see unassigned pickup donations with limited donor information
+
 CREATE OR REPLACE VIEW available_pickup_tasks AS
 SELECT 
     d.Donation_ID,

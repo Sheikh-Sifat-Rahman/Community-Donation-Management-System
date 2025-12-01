@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $phone = mysqli_real_escape_string($conn, trim($_POST['phone']));
     $donor_type = mysqli_real_escape_string($conn, $_POST['donor_type']);
     $address = mysqli_real_escape_string($conn, trim($_POST['address']));
-    $amount = floatval($_POST['amount']);
+    $quantity = intval($_POST['quantity']);
     $item_id = intval($_POST['item_id']);
     $payment_method = mysqli_real_escape_string($conn, $_POST['payment_method']);
     
@@ -45,23 +45,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $donor_id = mysqli_insert_id($conn);
         }
         
-        // Calculate quantity based on amount (simplified: $1 = 1 item)
-        $quantity_donated = intval($amount);
+        // Use the quantity provided by the user
+        $quantity_donated = $quantity;
         
         // Insert donation record
         $insert_donation = "INSERT INTO DONATION (Donor_ID, Item_ID, Date_Donated, Quantity_Donated, Payment_Method) 
                            VALUES ($donor_id, $item_id, '$date_donated', $quantity_donated, '$payment_method')";
         mysqli_query($conn, $insert_donation);
         
-        // Update warehouse quantity
-        $update_warehouse = "UPDATE WAREHOUSE SET quantity = quantity + $quantity_donated WHERE Item_ID = $item_id";
-        mysqli_query($conn, $update_warehouse);
+        // Update warehouse quantity only if delivered to warehouse
+        // For "Pickup from Home", warehouse will be updated when volunteer completes the pickup
+        if ($payment_method !== 'Pickup from Home') {
+            $update_warehouse = "UPDATE WAREHOUSE SET quantity = quantity + $quantity_donated WHERE Item_ID = $item_id";
+            mysqli_query($conn, $update_warehouse);
+        }
         
         // Commit transaction
         mysqli_commit($conn);
         
         // Set success message
-        $_SESSION['success_message'] = "Thank you for your donation of $$amount! Your contribution has been recorded.";
+        $_SESSION['success_message'] = "Thank you for your donation of $quantity_donated items! Your contribution has been recorded.";
         header('Location: ' . SITE_URL . '/pages/donation_success.php');
         exit();
         

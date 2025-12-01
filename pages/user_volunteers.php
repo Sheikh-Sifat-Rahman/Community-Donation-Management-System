@@ -15,15 +15,14 @@ $user_id = $_SESSION['user_id'];
 $success_message = '';
 $error_message = '';
 
-// Check if user has pending volunteer task
+// Check if user has pending volunteer task (check by email directly)
 $check_pending_query = "
     SELECT va.Assignment_ID, va.Status, w.Item_Name, d.Date_Donated
     FROM volunteer_assignments va
     JOIN DONATION d ON va.Donation_ID = d.Donation_ID
     JOIN WAREHOUSE w ON d.Item_ID = w.Item_ID
     JOIN VOLUNTEERS v ON va.Volunteer_ID = v.Volunteer_ID
-    JOIN users u ON v.Email = u.email
-    WHERE u.id = '$user_id' AND va.Status = 'Pending'
+    WHERE v.Email = '{$_SESSION['user_email']}' AND va.Status = 'Pending'
 ";
 $pending_result = mysqli_query($conn, $check_pending_query);
 $has_pending_task = mysqli_num_rows($pending_result) > 0;
@@ -72,15 +71,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['self_assign'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['complete_task'])) {
     $assignment_id = mysqli_real_escape_string($conn, $_POST['assignment_id']);
     
-    $complete_query = "UPDATE volunteer_assignments 
-                       SET Status = 'Completed', Completed_Date = NOW() 
-                       WHERE Assignment_ID = '$assignment_id'";
+    // Start transaction to ensure both updates happen together
+    mysqli_begin_transaction($conn);
     
-    if (mysqli_query($conn, $complete_query)) {
-        $success_message = "Great job! Task marked as completed.";
+    try {
+        // Get donation details to update warehouse
+        $get_donation_query = "SELECT d.Item_ID, d.Quantity_Donated 
+                               FROM volunteer_assignments va
+                               JOIN DONATION d ON va.Donation_ID = d.Donation_ID
+                               WHERE va.Assignment_ID = '$assignment_id'";
+        $donation_result = mysqli_query($conn, $get_donation_query);
+        $donation_data = mysqli_fetch_assoc($donation_result);
+        
+        // Update volunteer assignment status
+        $complete_query = "UPDATE volunteer_assignments 
+                           SET Status = 'Completed', Completed_Date = NOW() 
+                           WHERE Assignment_ID = '$assignment_id'";
+        mysqli_query($conn, $complete_query);
+        
+        // Update warehouse inventory (items have been picked up and delivered)
+        $update_warehouse = "UPDATE WAREHOUSE 
+                            SET quantity = quantity + {$donation_data['Quantity_Donated']} 
+                            WHERE Item_ID = {$donation_data['Item_ID']}";
+        mysqli_query($conn, $update_warehouse);
+        
+        // Commit transaction
+        mysqli_commit($conn);
+        
+        $success_message = "Great job! Task marked as completed and warehouse inventory updated.";
         $has_pending_task = false;
         $pending_task = null;
-    } else {
+    } catch (Exception $e) {
+        // Rollback on error
+        mysqli_rollback($conn);
         $error_message = "Error completing task: " . mysqli_error($conn);
     }
 }

@@ -65,6 +65,9 @@ if (file_exists($config_path)) {
                     <li><a href="<?php echo SITE_URL; ?>/pages/about.php" class="<?php echo ($current_page == 'about') ? 'active' : ''; ?>">About Us</a></li>
                     <?php if (isset($_SESSION['user_id'])): ?>
                         <li><a href="<?php echo SITE_URL; ?>/pages/dashboard.php" class="<?php echo ($current_page == 'dashboard') ? 'active' : ''; ?>">Dashboard</a></li>
+                        <li><a href="<?php echo SITE_URL; ?>/pages/donate.php" class="<?php echo ($current_page == 'donate') ? 'active' : ''; ?>">Donate</a></li>
+                        <li><a href="<?php echo SITE_URL; ?>/pages/volunteers.php" class="<?php echo ($current_page == 'volunteers') ? 'active' : ''; ?>">Volunteer</a></li>
+                        <li><a href="<?php echo SITE_URL; ?>/pages/aid_seekers.php" class="<?php echo ($current_page == 'aid_seekers') ? 'active' : ''; ?>">Seek Aid</a></li>
                     <?php endif; ?>
                     <?php if (isset($_SESSION['user_id']) && $_SESSION['user_role'] === 'admin'): ?>
                         <li><a href="<?php echo SITE_URL; ?>/pages/pages.php" class="<?php echo ($current_page == 'pages') ? 'active' : ''; ?>">Admin Dashboard</a></li>

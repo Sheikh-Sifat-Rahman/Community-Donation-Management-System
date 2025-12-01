@@ -73,8 +73,15 @@ $assigned_pickups_query = "
 ";
 $assigned_pickups = mysqli_query($conn, $assigned_pickups_query);
 
-// Fetch all volunteers
-$volunteers_query = "SELECT * FROM VOLUNTEERS ORDER BY Vol_Name";
+// Fetch all volunteers (prioritize those linked to registered users)
+$volunteers_query = "
+    SELECT v.*, 
+           CASE WHEN u.id IS NOT NULL THEN 1 ELSE 0 END as is_registered_user,
+           u.name as user_name
+    FROM VOLUNTEERS v
+    LEFT JOIN users u ON v.Email = u.email
+    ORDER BY is_registered_user DESC, Vol_Name
+";
 $volunteers = mysqli_query($conn, $volunteers_query);
 
 // Fetch pending aid seekers
@@ -313,6 +320,7 @@ $processed_seekers = mysqli_query($conn, $processed_seekers_query);
                     <?php mysqli_data_seek($volunteers, 0); while ($vol = mysqli_fetch_assoc($volunteers)): ?>
                         <option value="<?php echo $vol['Volunteer_ID']; ?>">
                             <?php echo htmlspecialchars($vol['Vol_Name']); ?> - <?php echo htmlspecialchars($vol['Area_Assigned']); ?>
+                            <?php echo $vol['is_registered_user'] ? ' (Registered User)' : ''; ?>
                         </option>
                     <?php endwhile; ?>
                 </select>

@@ -4,10 +4,12 @@ $page_title = 'My Dashboard';
 require_once '../includes/header.php';
 require_once '../includes/auth.php';
 
-// Ensure user is logged in and NOT admin
+// Ensure user is logged in
 checkAuth();
+
+// Redirect admins to admin dashboard
 if (isAdmin()) {
-    header('Location: ' . SITE_URL . '/pages/dashboard.php');
+    header('Location: ' . SITE_URL . '/pages/pages.php');
     exit();
 }
 
@@ -23,8 +25,31 @@ while ($don = mysqli_fetch_assoc($donations)) {
 }
 mysqli_data_seek($donations, 0);
 
-// Fetch user's volunteer activities from view
-$volunteer_query = "SELECT * FROM user_volunteer_activities WHERE user_id = '$user_id'";
+// Fetch user's volunteer activities - check both by user_id view and by email match
+// This ensures tasks assigned by admin are also shown
+$volunteer_query = "
+    SELECT 
+        va.Assignment_ID,
+        va.Donation_ID,
+        va.Status,
+        va.Assigned_Date,
+        va.Completed_Date,
+        va.Notes,
+        d.Date_Donated,
+        d.Quantity_Donated,
+        w.Item_Name,
+        don.Name as Donor_Name,
+        don.Phone as Donor_Phone,
+        don.Address as Pickup_Address,
+        v.Volunteer_ID
+    FROM volunteer_assignments va
+    JOIN DONATION d ON va.Donation_ID = d.Donation_ID
+    JOIN WAREHOUSE w ON d.Item_ID = w.Item_ID
+    JOIN DONOR don ON d.Donor_ID = don.Donor_ID
+    JOIN VOLUNTEERS v ON va.Volunteer_ID = v.Volunteer_ID
+    WHERE v.Email = '{$_SESSION['user_email']}'
+    ORDER BY va.Assigned_Date DESC
+";
 $volunteer_activities = mysqli_query($conn, $volunteer_query);
 $total_tasks = mysqli_num_rows($volunteer_activities);
 $completed_tasks = 0;
@@ -132,6 +157,11 @@ $total_aid_requests = mysqli_num_rows($aid_requests);
                     <?php endwhile; ?>
                 </tbody>
             </table>
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="<?php echo SITE_URL; ?>/pages/donate.php" class="btn" style="display: inline-block; background: linear-gradient(135deg, #ff6b6b, #ff8e53); color: white; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: 600;">
+                <i class="fas fa-heart"></i> Donate Now
+            </a>
         </div>
         <?php else: ?>
         <div style="text-align: center; padding: 60px; background: #f8f9fa; border-radius: 15px;">
